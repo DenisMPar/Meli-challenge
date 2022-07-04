@@ -1,8 +1,9 @@
-import {Button, Icon, Stack, Text} from "@chakra-ui/react";
+import { Button, Icon, Portal, Stack, Text } from "@chakra-ui/react";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import React from "react";
-import {MdOutlineKeyboardArrowRight} from "react-icons/md";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-const ProductAside: React.FC = () => {
+function ProductAside(props): ReactJSXElement {
   return (
     <Stack p={4} spacing="30px">
       <Stack>
@@ -17,9 +18,16 @@ const ProductAside: React.FC = () => {
         >
           <Stack direction="row" spacing={3}>
             <Text>Cantidad: 1</Text>
-            <Text color="gray.400">(69 Disponibles)</Text>
+            <Text color="gray.400">
+              ({props.item.available_quantity} disponibles)
+            </Text>
           </Stack>
-          <Icon as={MdOutlineKeyboardArrowRight} color="secondary.500" h="26px" w="26px" />
+          <Icon
+            as={MdOutlineKeyboardArrowRight}
+            color="secondary.500"
+            h="26px"
+            w="26px"
+          />
         </Stack>
       </Stack>
       <Stack>
@@ -32,6 +40,6 @@ const ProductAside: React.FC = () => {
       </Stack>
     </Stack>
   );
-};
+}
 
 export default ProductAside;

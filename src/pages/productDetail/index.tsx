@@ -7,10 +7,12 @@ import { Stack, StackDivider } from "@chakra-ui/react";
 import ProductQuestion from "../../components/productQuestions";
 import ProductOpinion from "../../components/productOpinions";
 import { useParams } from "react-router-dom";
+import { useSearchQuestions } from "../../hooks";
 
 const DetailsScreen: React.FC = () => {
-  const [results, setResults] = useState({});
+  const [results, setResults] = useState(null);
   const params = useParams();
+  const questions = useSearchQuestions();
 
   async function pullResults(id) {
     const response = await fetch("https://api.mercadolibre.com/items/" + id);
@@ -23,15 +25,19 @@ const DetailsScreen: React.FC = () => {
   }, [params]);
   return (
     <div>
-      <Stack divider={<StackDivider />} spacing={10} bg="#fff">
-        <div>
-          <ProductMainContainer item={results}></ProductMainContainer>
-          <ProductAside />
-        </div>
-        <ProductDescription />
-        <ProductQuestion />
-        <ProductOpinion />
-      </Stack>
+      {results ? (
+        <Stack divider={<StackDivider />} spacing={10} bg="#fff">
+          <div>
+            <ProductMainContainer item={results}></ProductMainContainer>
+            <ProductAside item={results} />
+          </div>
+          <ProductDescription />
+          <ProductQuestion question={questions} />
+          <ProductOpinion item={results} />
+        </Stack>
+      ) : (
+        <div>Producto no encontrado</div>
+      )}
     </div>
   );
 };

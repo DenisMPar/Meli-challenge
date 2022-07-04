@@ -3,29 +3,32 @@ import React from "react";
 
 import Stars from "../../ui/stars";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import { useRecoilValue } from "recoil";
+import { itemIdAtom, searchOpinionsState } from "../../atoms";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
-const Opinion: React.FC = () => {
+function Opinion(props): ReactJSXElement {
   return (
     <Stack>
-      <Stars></Stars>
+      <Stars rate={props.item.rate}></Stars>
       <Stack spacing={0}>
         <Text as="h3" fontWeight="600">
-          Titulo
+          {props.item.title}
         </Text>
-        <Text as="p">Muy buen producto la verdad</Text>
+        <Text as="p">{props.item.content}</Text>
       </Stack>
       <Stack direction="row">
         <Stack as="button" direction="row" align="center">
           <Icon as={AiOutlineLike}></Icon>
-          <div>10</div>
+          <div>{props.item.likes}</div>
         </Stack>
         <Stack as="button" direction="row" align="center">
           <Icon as={AiOutlineDislike}></Icon>
-          <div>30</div>
+          <div>{props.item.dislikes}</div>
         </Stack>
       </Stack>
     </Stack>
   );
-};
+}
 
 export default Opinion;

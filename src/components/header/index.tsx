@@ -15,7 +15,7 @@ import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import "./index.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import HeaderForm from "./headerForm";
 
 const Header: React.FC = () => {
@@ -31,13 +31,13 @@ const Header: React.FC = () => {
           spacing={2}
           w="100%"
         >
-          <Flex align="center" justify="center">
-            <a className="logo">
+          <Flex align="center" justify="center" maxW="44px" maxH="32px">
+            <Link to="/">
               <img
                 alt=""
                 src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small@2x.png"
               />
-            </a>
+            </Link>
           </Flex>
           <HeaderForm></HeaderForm>
           <Menu>
@@ -106,6 +106,9 @@ const Header: React.FC = () => {
         </Stack>
       </Box>
       <Box bg="#ededed">
+        <div style={{ color: "red", textAlign: "center" }}>
+          Disclaimer: Esta pagina es una <b>copia</b> hecha con fines académicos
+        </div>
         <Outlet />
       </Box>
     </>

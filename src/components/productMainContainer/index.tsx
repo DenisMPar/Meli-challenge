@@ -6,21 +6,25 @@ import {
   Stack,
   StackDivider,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { settings } from "./sliderSettings";
 import "./index.css";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import { Product } from "../../assets/types/types";
 
 function showItemDetails(item) {
-  return item?.pictures?.map((pic) => (
+  const sliced = item?.pictures?.slice(0, 10);
+  return sliced.map((pic, index) => (
     <Flex
       width="100%"
+      height="100%"
       as="div"
       key={pic.secure_url}
       border="none"
       alignItems="center"
       justify="center"
+      pt={3}
     >
       <Image
         alt=""
@@ -34,10 +38,24 @@ function showItemDetails(item) {
   ));
 }
 type props = {
-  item: object;
+  item: Product;
 };
 
 function ProductMainContainer(props: props): ReactJSXElement {
+  const [count, setCount] = useState(1);
+  const [totalSlides, setTotalSlides] = useState(0);
+
+  const sliderEl = useRef(null);
+  useEffect(() => {
+    if (sliderEl.current)
+      setTotalSlides(sliderEl.current.props.children?.length || 0);
+  }, [sliderEl.current]);
+
+  const addSetting = {
+    beforeChange: (current, next) => setCount(next + 1),
+    // customPaging: (i) => <span>{i}</span>,
+  };
+  const finalSetting = { ...settings, ...addSetting };
   return (
     <>
       <Stack direction="column" p={4}>
@@ -49,17 +67,34 @@ function ProductMainContainer(props: props): ReactJSXElement {
               divider={<StackDivider />}
               fontSize="12px"
             >
-              <span>Nuevo</span>
-              <span>500 vendidos</span>
+              <span>{props.item.condition == "new" ? "Nuevo" : "Usado"}</span>
+              <span>{props.item.sold_quantity + " Vendidos"}</span>
             </Stack>
-            <h1>Auriculares inalámbricos Noga Aris NG-BT469 rojo y negro</h1>
+            <h1>{props.item.title}</h1>
           </Stack>
         </Stack>
         <Stack direction="column">
-          <Container>
-            <Slider {...settings}>{showItemDetails(props.item)}</Slider>
+          <Container pos="relative">
+            <Flex
+              direction="row"
+              position="absolute"
+              left="0"
+              zIndex={2}
+              backgroundColor="#ededed"
+              px={2}
+              py={1}
+              borderRadius="12px"
+              fontSize="12px"
+              fontWeight="600"
+              gap={1}
+            >
+              <span>{count}</span>/<span>{totalSlides}</span>
+            </Flex>
+            <Slider ref={sliderEl} {...finalSetting}>
+              {showItemDetails(props.item)}
+            </Slider>
           </Container>
-          <Flex
+          {/* <Flex
             bg="#f5f5f5"
             borderRadius={8}
             direction="column"
@@ -75,15 +110,17 @@ function ProductMainContainer(props: props): ReactJSXElement {
               src="https://http2.mlstatic.com/D_Q_NP_827646-MLA42763680088_072020-R.webp"
               width="32px"
             />
-          </Flex>
+          </Flex> */}
         </Stack>
       </Stack>
       <Stack p={4} spacing={0}>
-        <Box color="gray.400" lineHeight={1}>
-          <del>$6000</del>
-        </Box>
+        {props.item.original_price ? (
+          <Box color="gray.400" lineHeight={1}>
+            <del>{"$ " + props.item.original_price}</del>
+          </Box>
+        ) : null}
         <Box fontSize="32px" fontWeight="300" lineHeight={1}>
-          $5000
+          {"$ " + props.item.price}
         </Box>
       </Stack>
     </>
