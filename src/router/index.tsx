@@ -9,7 +9,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<HomeScreen />}></Route>
-        <Route path="item/:id" element={<DetailsScreen />}></Route>
+        <Route path="/productId" element={<DetailsScreen />}></Route>
       </Route>
     </Routes>
   );
