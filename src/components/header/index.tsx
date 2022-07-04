@@ -16,6 +16,7 @@ import { GoLocation } from "react-icons/go";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import "./index.css";
 import { Outlet } from "react-router-dom";
+import HeaderForm from "./headerForm";
 
 const Header: React.FC = () => {
   return (
@@ -38,21 +39,7 @@ const Header: React.FC = () => {
               />
             </a>
           </Flex>
-          <Stack
-            align="center"
-            bg="white"
-            borderRadius="sm"
-            boxShadow="sm"
-            direction="row"
-            divider={<StackDivider />}
-            flexGrow={1}
-            h="32px"
-            justifyContent="revert"
-            p={2}
-          >
-            <Input placeholder="Estoy buscando" variant="unstyled" />
-            <Icon as={AiOutlineSearch} color="gray.400" />
-          </Stack>
+          <HeaderForm></HeaderForm>
           <Menu>
             <MenuButton
               aria-label="Menu"

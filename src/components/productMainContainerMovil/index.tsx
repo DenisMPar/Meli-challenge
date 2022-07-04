@@ -45,7 +45,7 @@ const ProductMainContainer: React.FC = () => {
         <Stack direction="column">
           <Container>
             <Slider {...settings}>
-              {/* <Box objectFit="contain">
+              <Box objectFit="contain">
                 <img
                   alt=""
                   src="https://http2.mlstatic.com/D_NQ_NP_827646-MLA42763680088_072020-O.webp"
@@ -56,7 +56,7 @@ const ProductMainContainer: React.FC = () => {
                   alt=""
                   src="https://http2.mlstatic.com/D_NQ_NP_827646-MLA42763680088_072020-O.webp"
                 />
-              </Box> */}
+              </Box>
             </Slider>
           </Container>
           <Flex
