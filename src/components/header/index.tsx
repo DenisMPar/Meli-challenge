@@ -105,7 +105,9 @@ const Header: React.FC = () => {
           <MdKeyboardArrowRight style={{ marginRight: "10px" }} />
         </Stack>
       </Box>
-      <Outlet />
+      <Box bg="#ededed">
+        <Outlet />
+      </Box>
     </>
   );
 };
