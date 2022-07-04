@@ -15,10 +15,7 @@ const DetailsScreen: React.FC = () => {
   async function pullResults(id) {
     const response = await fetch("https://api.mercadolibre.com/items/" + id);
     const json = await response.json();
-    console.log(json);
-
     setResults(json);
-    console.log(results);
   }
 
   useEffect(() => {
@@ -28,7 +25,7 @@ const DetailsScreen: React.FC = () => {
     <div>
       <Stack divider={<StackDivider />} spacing={10} bg="#fff">
         <div>
-          <ProductMainContainer />
+          <ProductMainContainer item={results}></ProductMainContainer>
           <ProductAside />
         </div>
         <ProductDescription />

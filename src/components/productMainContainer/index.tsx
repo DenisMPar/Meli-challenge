@@ -5,26 +5,39 @@ import {
   Image,
   Stack,
   StackDivider,
-  Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { settings } from "./sliderSettings";
 import "./index.css";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 function showItemDetails(item) {
-  return (
-    <>
-      {item.pictures.map((pic) => (
-        <div key={pic.secure_url} className="item-details__image-container">
-          <img className="item-details__image" src={pic.secure_url} />
-        </div>
-      ))}
-    </>
-  );
+  return item?.pictures?.map((pic) => (
+    <Flex
+      width="100%"
+      as="div"
+      key={pic.secure_url}
+      border="none"
+      alignItems="center"
+      justify="center"
+    >
+      <Image
+        alt=""
+        src={pic.secure_url}
+        height="100%"
+        maxHeight="250px"
+        objectFit="contain"
+        margin="0 auto"
+      ></Image>
+    </Flex>
+  ));
 }
+type props = {
+  item: object;
+};
 
-const ProductMainContainer: React.FC = () => {
+function ProductMainContainer(props: props): ReactJSXElement {
   return (
     <>
       <Stack direction="column" p={4}>
@@ -44,20 +57,7 @@ const ProductMainContainer: React.FC = () => {
         </Stack>
         <Stack direction="column">
           <Container>
-            <Slider {...settings}>
-              <Box objectFit="contain">
-                <img
-                  alt=""
-                  src="https://http2.mlstatic.com/D_NQ_NP_827646-MLA42763680088_072020-O.webp"
-                />
-              </Box>
-              <Box>
-                <img
-                  alt=""
-                  src="https://http2.mlstatic.com/D_NQ_NP_827646-MLA42763680088_072020-O.webp"
-                />
-              </Box>
-            </Slider>
+            <Slider {...settings}>{showItemDetails(props.item)}</Slider>
           </Container>
           <Flex
             bg="#f5f5f5"
@@ -88,6 +88,6 @@ const ProductMainContainer: React.FC = () => {
       </Stack>
     </>
   );
-};
+}
 
 export default ProductMainContainer;
