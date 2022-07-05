@@ -9,7 +9,10 @@ import {
 } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import React from "react";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 function ProductAside(props): ReactJSXElement {
   return (
@@ -55,27 +58,44 @@ function ProductAside(props): ReactJSXElement {
         </Box>
       </Stack>
       <Stack>
-        <span>Stock disponible</span>
+        <span style={{ fontWeight: "600" }}>Stock disponible</span>
         <Stack
           align="center"
-          bg="#f5f5f5"
+          bg={{ base: "#f5f5f5", lg: "white" }}
           borderRadius={6}
           direction="row"
-          justify="space-between"
-          p={3}
+          p={{ base: 3, lg: 0 }}
         >
-          <Stack direction="row" spacing={3}>
-            <Text>Cantidad: 1</Text>
+          <Text>
+            Cantidad: 1{" "}
+            <Box as="span" display={{ base: "none", lg: "initial" }}>
+              Unidad
+            </Box>
+          </Text>
+          <Stack
+            flex={{ base: 4, lg: "initial" }}
+            direction={{ base: "row", lg: "row-reverse" }}
+            spacing={3}
+            justify="space-between"
+          >
             <Text color="gray.400">
               ({props.item.available_quantity} disponibles)
             </Text>
+            <Icon
+              display={{ lg: "none" }}
+              as={MdOutlineKeyboardArrowRight}
+              color="secondary.500"
+              h="26px"
+              w="26px"
+            />
+            <Icon
+              display={{ base: "none", lg: "initial" }}
+              as={MdOutlineKeyboardArrowDown}
+              color="secondary.500"
+              h="26px"
+              w="26px"
+            />
           </Stack>
-          <Icon
-            as={MdOutlineKeyboardArrowRight}
-            color="secondary.500"
-            h="26px"
-            w="26px"
-          />
         </Stack>
       </Stack>
       <Stack maxW="500px" width="100%" mx="auto !important">

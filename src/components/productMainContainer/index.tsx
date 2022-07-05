@@ -37,8 +37,8 @@ function showItemPictures(item, setter, thumb?) {
         }}
         alt=""
         src={pic.secure_url}
-        height="100%"
-        maxHeight={`${thumb ? "44px" : "250px"}`}
+        height={`${thumb ? "44px" : "100%"}`}
+        maxHeight="250px"
         objectFit="contain"
         margin="0 auto"
       ></Image>
@@ -121,7 +121,12 @@ function ProductMainContainer(props: props): ReactJSXElement {
         <Stack width="44px" maxH="100px">
           {showItemPictures(props.item, setUrl, true)}
         </Stack>
-        <Box width="100%">
+        <Box
+          width="100%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Image src={imgUrl} margin="20px auto"></Image>
         </Box>
       </Stack>
