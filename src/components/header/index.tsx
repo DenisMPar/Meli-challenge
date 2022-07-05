@@ -9,6 +9,7 @@ import {
   Stack,
   Icon,
   StackDivider,
+  Image,
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
@@ -21,66 +22,91 @@ import HeaderForm from "./headerForm";
 const Header: React.FC = () => {
   return (
     <>
-      <Box as="header">
+      <Box
+        as="header"
+        bg="primary.500"
+        display={"flex"}
+        flexDirection="column"
+        alignItems={"center"}
+      >
         <Stack
+          maxW="1200px"
           align="center"
           bg="primary.500"
           direction="row"
           margin={0}
-          p={1}
+          p={{ base: 1, lg: 2 }}
           spacing={2}
           w="100%"
+          justify={{ lg: "space-between" }}
         >
-          <Flex align="center" justify="center" maxW="44px" maxH="32px">
+          <Flex
+            align="center"
+            justify="center"
+            maxW={{ base: "44px", lg: "134px" }}
+            maxH="32px"
+          >
             <Link to="/">
-              <img
-                alt=""
+              <Image
+                display={{ lg: "none" }}
                 src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small@2x.png"
-              />
+              ></Image>
+              <Image
+                display={{ base: "none", lg: "initial" }}
+                src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.19.0/mercadolibre/logo__large_plus.png"
+              ></Image>
             </Link>
           </Flex>
           <HeaderForm></HeaderForm>
-          <Menu>
-            <MenuButton
-              aria-label="Menu"
-              as={IconButton}
-              border="none"
-              display="block"
-              icon={
-                <GiHamburgerMenu
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    color: "#333",
-                    opacity: "65%",
-                  }}
-                />
-              }
-              p={1.5}
-              variant="outline"
-            />
-          </Menu>
-          <Menu>
-            <MenuButton
-              aria-label="Menu"
-              as={IconButton}
-              border="none"
-              icon={
-                <AiOutlineShoppingCart
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    color: "#333",
-                    opacity: "65%",
-                  }}
-                />
-              }
-              p={1.5}
-              variant="outline"
-            />
-          </Menu>
+          <Box display={{ base: "flex", lg: "none" }}>
+            <Menu>
+              <MenuButton
+                aria-label="Menu"
+                as={IconButton}
+                border="none"
+                display="block"
+                icon={
+                  <GiHamburgerMenu
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      color: "#333",
+                      opacity: "65%",
+                    }}
+                  />
+                }
+                p={1.5}
+                variant="outline"
+              />
+            </Menu>
+            <Menu>
+              <MenuButton
+                aria-label="Menu"
+                as={IconButton}
+                border="none"
+                icon={
+                  <AiOutlineShoppingCart
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      color: "#333",
+                      opacity: "65%",
+                    }}
+                  />
+                }
+                p={1.5}
+                variant="outline"
+              />
+            </Menu>
+          </Box>
+          <Image
+            display={{ base: "none", lg: "initial" }}
+            maxW="340px"
+            src="https://http2.mlstatic.com/D_NQ_840611-MLA48934732318_012022-OO.webp"
+          ></Image>
         </Stack>
         <Stack
+          display={{ base: "flex", lg: "none" }}
           _before={{
             content: `""`,
             display: "block",
@@ -103,6 +129,84 @@ const Header: React.FC = () => {
           <GoLocation style={{ marginLeft: "10px" }} />
           <Box flex={4}>Enviar a: Capital Federal</Box>
           <MdKeyboardArrowRight style={{ marginRight: "10px" }} />
+        </Stack>
+        <Stack
+          display={{ base: "none", lg: "flex" }}
+          maxW="1200px"
+          align="center"
+          bg="primary.500"
+          direction="row"
+          fontSize="13px"
+          justify="space-between"
+          marginTop="0"
+          position="relative"
+          width="100%"
+          p={2}
+        >
+          <Stack direction={"row"} gap="60px">
+            <GoLocation
+              style={{
+                marginLeft: "10px",
+                position: "absolute",
+                top: 5,
+                width: "20px",
+                height: "20px",
+              }}
+            />
+            <Stack spacing={0} ml="32px !important">
+              <Box
+                as="span"
+                color={"rgba(0,0,0,.5);"}
+                fontSize={"12px"}
+                lineHeight="1"
+              >
+                Enivar a:
+              </Box>
+              <Box as="span" lineHeight="1" fontSize={"14px"}>
+                Capital Federal
+              </Box>
+            </Stack>
+            <Stack
+              as="ul"
+              direction="row"
+              color="rgba(51,51,51,.6)"
+              fontSize="14px"
+              spacing={4}
+            >
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Categorias
+              </Box>
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Ofertas
+              </Box>
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Historial
+              </Box>
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Supermercado
+              </Box>
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Moda
+              </Box>
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Vender
+              </Box>
+              <Box cursor="pointer" as="li" listStyleType={"none"}>
+                Ayuda
+              </Box>
+            </Stack>
+          </Stack>
+          <Stack as="ul" direction="row" fontSize="14px" spacing={4}>
+            <Box cursor="pointer" as="li" listStyleType={"none"}>
+              Crea tu cuenta
+            </Box>
+            <Box cursor="pointer" as="li" listStyleType={"none"}>
+              Ingresa
+            </Box>
+            <Box cursor="pointer" as="li" listStyleType={"none"}>
+              Mis compras
+            </Box>
+          </Stack>
         </Stack>
       </Box>
       <Box bg="#ededed">

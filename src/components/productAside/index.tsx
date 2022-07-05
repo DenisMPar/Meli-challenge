@@ -22,6 +22,7 @@ function ProductAside(props): ReactJSXElement {
       spacing="30px"
       border={{ lg: "solid 1px rgba(0,0,0,.1)" }}
       borderRadius={{ lg: "8px" }}
+      maxW="350px"
     >
       <Stack direction="column" display={{ base: "none", lg: "initial" }}>
         <Stack

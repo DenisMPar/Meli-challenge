@@ -13,16 +13,17 @@ const HeaderForm: React.FC = () => {
   }
   return (
     <Stack
+      maxW={{ lg: "598px" }}
       onSubmit={handleSubmit}
       as="form"
       align="center"
       bg="white"
       borderRadius="sm"
-      boxShadow="sm"
+      boxShadow="0 1px 2px 0 rgb(0 0 0 / 20%)"
       direction="row"
       divider={<StackDivider />}
       flexGrow={1}
-      h="32px"
+      h={{ base: "32px", lg: "39px" }}
       justifyContent="revert"
       p={2}
     >
