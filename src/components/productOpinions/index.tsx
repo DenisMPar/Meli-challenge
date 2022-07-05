@@ -27,8 +27,9 @@ function showOpinions(reviews) {
 
 function ProductOpinion(props): ReactJSXElement {
   const reviews = useRecoilValue(searchOpinionsState);
+
   const [reviewsState, setReviewsState] = useState(
-    showOpinions(reviews.reviews)
+    showOpinions(reviews.reviews || [])
   );
 
   return (
@@ -43,7 +44,7 @@ function ProductOpinion(props): ReactJSXElement {
         <OpinionsHeader item={props.item}></OpinionsHeader>
         <ButtonTabs
           toggle={setReviewsState}
-          reviews={reviews.reviews}
+          reviews={reviews?.reviews}
         ></ButtonTabs>
       </Stack>
       <Stack p={4} spacing={2}>
@@ -54,7 +55,13 @@ function ProductOpinion(props): ReactJSXElement {
             <Text textAlign="center" fontSize="20px">
               No hay opiniones
             </Text>
-            <Icon as={FcSearch} height="100%" width="100%" p={10}></Icon>
+            <Icon
+              as={FcSearch}
+              height="100%"
+              width="100%"
+              maxW="400px"
+              p={10}
+            ></Icon>
           </Stack>
         )}
       </Stack>

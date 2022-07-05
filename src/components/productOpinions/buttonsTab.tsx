@@ -18,7 +18,7 @@ function ButtonTabs(props): ReactJSXElement {
   }, []);
 
   function showPositiveOpinions(reviews) {
-    const filtered = reviews.filter((item) => item.rate >= 3);
+    const filtered = reviews?.filter((item) => item.rate >= 3);
     const res = filtered.map((item) => {
       if (item.rate >= 3) {
         return <Opinion key={item.id} item={item}></Opinion>;
@@ -27,7 +27,7 @@ function ButtonTabs(props): ReactJSXElement {
     toggle(res);
   }
   function showNegativeOpinions(reviews) {
-    const filtered = reviews.filter((item) => item.rate < 3);
+    const filtered = reviews?.filter((item) => item.rate < 3);
     const res = filtered.map((item) => {
       if (item.rate < 3) {
         return <Opinion key={item.id} item={item}></Opinion>;
@@ -37,7 +37,7 @@ function ButtonTabs(props): ReactJSXElement {
     toggle(res);
   }
   function showAllOpinions(reviews) {
-    const res = reviews.map((item) => {
+    const res = reviews?.map((item) => {
       return <Opinion key={item.id} item={item}></Opinion>;
     });
     toggle(res);

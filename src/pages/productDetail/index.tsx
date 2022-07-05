@@ -33,10 +33,10 @@ const DetailsScreen: React.FC = () => {
           maxW="1100px"
           m="0 auto"
         >
-          <div>
+          <Stack direction={{ base: "column", lg: "row" }} p={{ lg: 4 }}>
             <ProductMainContainer item={results}></ProductMainContainer>
             <ProductAside item={results} />
-          </div>
+          </Stack>
           <ProductDescription />
           <ProductQuestion question={questions} />
           <ProductOpinion item={results} />

@@ -47,8 +47,7 @@ export const searchOpinionsState = selector({
         "https://api.mercadolibre.com/reviews/item/" + id + "?limit=10"
       );
 
-      const json = await response.json();
-      return json;
+      return response.ok ? await response.json() : false;
     }
   },
 });
