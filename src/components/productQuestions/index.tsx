@@ -21,8 +21,8 @@ function showQuestions(questions): ReactJSXElement {
 
 function ProductQuestion(props): ReactJSXElement {
   return (
-    <Box px={4}>
-      <Text mb="24px" fontSize="20px">
+    <Box px={{ base: 4, sm: 8 }} maxW="769px">
+      <Text mb="24px" fontSize={{ base: "20px", sm: "1.5em" }}>
         Preguntas y respuestas
       </Text>
       <Text mb="24px" fontSize="18px" fontWeight="600">

@@ -26,7 +26,13 @@ const DetailsScreen: React.FC = () => {
   return (
     <div>
       {results ? (
-        <Stack divider={<StackDivider />} spacing={10} bg="#fff">
+        <Stack
+          divider={<StackDivider />}
+          spacing={10}
+          bg="#fff"
+          maxW="1100px"
+          m="0 auto"
+        >
           <div>
             <ProductMainContainer item={results}></ProductMainContainer>
             <ProductAside item={results} />

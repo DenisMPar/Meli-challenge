@@ -52,3 +52,17 @@ export const searchOpinionsState = selector({
     }
   },
 });
+export const searchDescriptionState = selector({
+  key: "searchDescriptionState",
+  get: async ({ get }) => {
+    const id = get(itemIdAtom);
+    if (id != "") {
+      const response = await fetch(
+        "https://api.mercadolibre.com/items/" + id + "/description"
+      );
+
+      const json = await response.json();
+      return json;
+    }
+  },
+});

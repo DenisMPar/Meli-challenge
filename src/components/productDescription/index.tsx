@@ -1,20 +1,24 @@
 import { Box, Stack, Text } from "@chakra-ui/react";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { searchDescriptionState } from "../../atoms";
 
-const ProductDescription: React.FC = () => {
+function ProductDescription(): ReactJSXElement {
+  const description = useRecoilValue(searchDescriptionState);
+
   return (
-    <Box px={4}>
+    <Box px={{ base: 4, sm: 8 }} maxW="769px">
       <Text mb="24px" fontSize="20px">
         Descripción
       </Text>
-      <Text>
-        En la calle, en el colectivo o en la oficina, tené siempre a mano tus
-        auriculares Noga y ¡escapate de la rutina por un rato! Vas a poder
-        disfrutar de la música que más te gusta y de tus podcasts favoritos
-        cuando quieras y donde quieras
+      <Text color="#666">
+        {description.plain_text
+          ? description.plain_text
+          : "El vendedor no incluyó una descripción del producto"}
       </Text>
     </Box>
   );
-};
+}
 
 export default ProductDescription;
