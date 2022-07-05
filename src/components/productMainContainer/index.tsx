@@ -15,21 +15,24 @@ import { Product } from "../../assets/types/types";
 
 function showItemPictures(item, setter, thumb?) {
   const sliced = item?.pictures?.slice(0, 10);
-
+  useEffect(() => {
+    setter(sliced[0].secure_url);
+  }, []);
   return sliced.map((pic, index) => (
     <Flex
       width="100%"
       height="100%"
-      as="div"
+      as={`${thumb ? "button" : "div"}`}
       key={pic.secure_url}
       border={`${thumb ? "solid 1px rgba(0,0,0,.1)" : "none"}`}
       alignItems="center"
       justify="center"
       pt={`${thumb ? 0 : 3}`}
+      _focus={{ border: "solid 2px #3483fa" }}
+      cursor={`${thumb ? "pointer" : ""}`}
     >
       <Image
         onClick={() => {
-          console.log("click");
           setter(pic.secure_url);
         }}
         alt=""
@@ -72,8 +75,9 @@ function ProductMainContainer(props: props): ReactJSXElement {
         align={{ lg: "center" }}
         p={4}
         width={{ lg: "100%" }}
+        display={{ lg: "none" }}
       >
-        <Stack direction="column" display={{ lg: "none" }}>
+        <Stack direction="column">
           <Stack
             color="gray.400"
             direction="row"
@@ -103,24 +107,23 @@ function ProductMainContainer(props: props): ReactJSXElement {
             >
               <span>{count}</span>/<span>{totalSlides}</span>
             </Flex>
-
             <Slider ref={sliderEl} {...finalSetting}>
               {showItemPictures(props.item, setUrl)}
             </Slider>
           </Container>
-          <Stack
-            direction="row"
-            display={{ base: "none", lg: "flex" }}
-            width="100%"
-          >
-            <Stack width="44px" maxH="100px">
-              {showItemPictures(props.item, setUrl, true)}
-            </Stack>
-            <div>
-              <Image src={imgUrl}></Image>
-            </div>
-          </Stack>
         </Stack>
+      </Stack>
+      <Stack
+        direction="row"
+        display={{ base: "none", lg: "flex" }}
+        width="100%"
+      >
+        <Stack width="44px" maxH="100px">
+          {showItemPictures(props.item, setUrl, true)}
+        </Stack>
+        <Box width="100%">
+          <Image src={imgUrl} margin="20px auto"></Image>
+        </Box>
       </Stack>
       {/* <Stack p={4} spacing={0}>
         {props.item.original_price ? (

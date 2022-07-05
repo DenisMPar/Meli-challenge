@@ -78,7 +78,7 @@ function ProductAside(props): ReactJSXElement {
           />
         </Stack>
       </Stack>
-      <Stack maxW="500px" width="100%">
+      <Stack maxW="500px" width="100%" mx="auto !important">
         <Button
           _hover={{ bg: "secondary.700" }}
           _focus={{ bg: "secondary.700" }}
