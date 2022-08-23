@@ -5,10 +5,11 @@ import { AppRoutes } from "./router";
 import { RecoilRoot } from "recoil";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
+import Spinner from "./ui/loader";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <RecoilRoot>
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<Spinner></Spinner>}>
       <BrowserRouter>
         <ChakraProvider theme={theme}>
           <AppRoutes />

@@ -28,7 +28,9 @@ const HeaderForm: React.FC = () => {
       p={2}
     >
       <Input placeholder="Estoy buscando" variant="unstyled" name="query" />
-      <Icon as={AiOutlineSearch} color="gray.400" />
+      <button>
+        <Icon as={AiOutlineSearch} color="gray.400" />
+      </button>
     </Stack>
   );
 };
