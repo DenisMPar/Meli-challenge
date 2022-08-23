@@ -5,12 +5,6 @@ import "./index.css";
 function Spinner(): ReactJSXElement {
   return (
     <div className="container">
-      {/* <div className="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div> */}
       <Loader width={"100px"} height={"100px"}></Loader>
     </div>
   );
