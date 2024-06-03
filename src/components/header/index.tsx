@@ -48,12 +48,15 @@ const Header: React.FC = () => {
           >
             <Link to="/">
               <Image
+                objectFit="cover"
                 display={{ lg: "none" }}
-                src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small@2x.png"
+                src="/meli-logo.png"
               ></Image>
               <Image
+                p={15}
+                objectFit="cover"
                 display={{ base: "none", lg: "initial" }}
-                src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.19.0/mercadolibre/logo__large_plus.png"
+                src="/meli-logo.png"
               ></Image>
             </Link>
           </Flex>
@@ -210,8 +213,17 @@ const Header: React.FC = () => {
         </Stack>
       </Box>
       <Box bg="#ededed">
-        <div style={{ color: "red", textAlign: "center" }}>
-          Disclaimer: Esta pagina es una <b>copia</b> hecha con fines académicos
+        <div
+          style={{
+            color: "white",
+            textAlign: "center",
+            backgroundColor: "red",
+            width: "100%",
+            padding: "10px",
+          }}
+        >
+          Disclaimer: Esta pagina es una <b>copia</b> hecha con fines
+          académicos, no tiene intenciones de reemplazar a la página original.
         </div>
         <Outlet />
       </Box>

@@ -15,7 +15,6 @@ const HomeScreen: React.FC = () => {
           ver sus detalles
         </Text>
       </Box>
-
       <Image width="100%" height="300px" src={source}></Image>
     </Stack>
   );
