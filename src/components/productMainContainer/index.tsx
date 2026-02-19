@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import { movilSettings, WebSettings } from "./sliderSettings";
+import { movilSettings } from "./sliderSettings";
 import "./index.css";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { Product } from "../../assets/types/types";

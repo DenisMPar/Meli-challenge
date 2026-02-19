@@ -1,6 +1,4 @@
 import { Icon, Input, Stack, StackDivider } from "@chakra-ui/react";
-import React from "react";
-import { useRef } from "react";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +7,7 @@ const HeaderForm: React.FC = () => {
   let navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    navigate("/search/" + e.target.query.value, { replace: true });
+    navigate("/search/" + e.target.query.value);
   }
   return (
     <Stack

@@ -3,16 +3,13 @@ import {
   Box,
   Flex,
   IconButton,
-  Input,
   Menu,
   MenuButton,
   Stack,
-  Icon,
-  StackDivider,
   Image,
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import "./index.css";

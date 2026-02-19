@@ -1,13 +1,10 @@
 import { Icon, Stack, Text } from "@chakra-ui/react";
-import React from "react";
 
+import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import Stars from "../../ui/stars";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import { useRecoilValue } from "recoil";
-import { itemIdAtom, searchOpinionsState } from "../../atoms";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
-function Opinion(props): ReactJSXElement {
+
+function Opinion(props) {
   return (
     <Stack>
       <Stars rate={props.item.rate}></Stars>

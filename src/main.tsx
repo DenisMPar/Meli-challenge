@@ -9,12 +9,12 @@ import Spinner from "./ui/loader";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <RecoilRoot>
+        <ChakraProvider theme={theme}>
     <Suspense fallback={<Spinner></Spinner>}>
       <BrowserRouter>
-        <ChakraProvider theme={theme}>
           <AppRoutes />
-        </ChakraProvider>
       </BrowserRouter>
     </Suspense>
+        </ChakraProvider>
   </RecoilRoot>
 );

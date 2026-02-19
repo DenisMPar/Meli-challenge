@@ -1,5 +1,4 @@
-import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
-import React from "react";
+import { SimpleGrid } from "@chakra-ui/react";
 
 import { SearchResultItem } from "../../components/searchResultItem";
 import { useSearchResults } from "../../hooks";

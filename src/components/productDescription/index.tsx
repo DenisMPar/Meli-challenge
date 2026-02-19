@@ -1,10 +1,8 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import React from "react";
+import { Box, Text } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import { searchDescriptionState } from "../../atoms";
 
-function ProductDescription(): ReactJSXElement {
+function ProductDescription() {
   const description = useRecoilValue(searchDescriptionState);
 
   return (

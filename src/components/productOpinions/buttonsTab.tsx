@@ -1,11 +1,5 @@
 import { Flex, Button } from "@chakra-ui/react";
-import React from "react";
-
-import Stars from "../../ui/stars";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useRef, useEffect } from "react";
 import "./index.css";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import Opinion from "./opinions";

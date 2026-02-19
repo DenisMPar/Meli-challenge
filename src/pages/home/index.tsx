@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, calc, Image, Stack, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import source from "../../assets/homeImage.svg";
 
 const HomeScreen: React.FC = () => {

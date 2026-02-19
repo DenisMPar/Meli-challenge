@@ -1,19 +1,15 @@
 import {
-  Box,
-  Button,
-  Flex,
   Icon,
   Stack,
   StackDivider,
   Text,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { FcSearch } from "react-icons/fc";
 import Opinion from "./opinions";
 import ButtonTabs from "./buttonsTab";
 import OpinionsHeader from "./opinionsHeader";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { useRecoilValue } from "recoil";
 import { searchOpinionsState } from "../../atoms";
 
@@ -25,7 +21,7 @@ function showOpinions(reviews) {
   return res;
 }
 
-function ProductOpinion(props): ReactJSXElement {
+function ProductOpinion(props){
   const reviews = useRecoilValue(searchOpinionsState);
 
   const [reviewsState, setReviewsState] = useState(

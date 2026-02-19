@@ -5,8 +5,8 @@ import {
   searchResultsState,
 } from "../atoms";
 import { useEffect } from "react";
-import { useParams } from "react-router";
-import { selector, useRecoilState, useRecoilValue } from "recoil";
+import { useParams } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 export function useSearchResults() {
   const params = useParams();

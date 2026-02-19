@@ -1,6 +1,3 @@
-import { Box } from "@chakra-ui/react";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import React from "react";
 import "./index.css";
 
 type props = {
@@ -8,9 +5,11 @@ type props = {
   prom?: number;
 };
 
-function Stars(props: props): ReactJSXElement {
+function Stars(props: props){
+  console.log(props.rate);
+  
   const calcRate = (rate) => {
-    return (rate * 100) / 10;
+    return rate * 5;
   };
   const calcProm = (prom) => {
     return (prom * 100) / 5;
@@ -21,7 +20,7 @@ function Stars(props: props): ReactJSXElement {
   return (
     <div className="ratings">
       <div className="empty-stars"></div>
-      <div className="full-stars" style={{ width: `${rate | prom}%` }}></div>
+      <div className="full-stars" style={{ width: `${rate || prom}%` }}></div>
     </div>
   );
 }
